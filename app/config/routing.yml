@@ -1,0 +1,4 @@
+iknsa_app:
+    resource: "@IKNSAAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
