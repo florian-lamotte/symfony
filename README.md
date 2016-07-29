@@ -124,3 +124,4 @@ You can find all the related details about configuring your apache on ubuntu ser
     ```
     sudo service apache2 restart
     ```
+# symfony
