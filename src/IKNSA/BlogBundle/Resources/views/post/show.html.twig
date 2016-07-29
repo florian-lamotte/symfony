@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ post.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ post.title }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ post.summary }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ post.content }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if post.createdAt %}{{ post.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ post.user.username }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{% if post.id and post.extension %}<img src="{{ asset(['uploads/pictures/', post.id ~ '.' ~ post.extension]|join) }}" style="width:75px; height:75px;" />
+                {% else %}No image was found for this post{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('post_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('post_edit', { 'id': post.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+    <hr>
+    <h3>Commenter</h3>
+    <form action="{{ path('post_show', { 'id' : post.id } ) }}" method="post" class="commentaire">
+    <p>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Commenter">
+        {{ form_end(form) }}
+    </p>
+    </form>
+
+    <hr>
+
+    <h3>Commentaires</h3>
+    {% for comment in comments %}
+    <article">
+        <p><b>{{ comment.user }}</b> a dit le {{ comment.created|date('d/m/Y') }} :</p>
+        <p style="margin-left:50px; margin-right:50px;">{{ comment.comment }}</p>
+    </article>
+    {% else %}
+        <p>Pas de commentaires.</p>
+{% endfor %}
+{% endblock %}

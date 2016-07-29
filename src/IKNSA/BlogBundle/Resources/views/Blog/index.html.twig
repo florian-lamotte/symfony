@@ -1,0 +1,98 @@
+{% extends 'IKNSABlogBundle::layout.html.twig' %}
+
+{% block body %}
+                        <div class="container" ng-controller="BlogController">
+                            <div class="row margin-vert-30">
+                                <!-- Main Text -->
+                                <div class="col-md-9">
+                                    <h2>Derniers articles</h2>
+                                    <div ng-repeat="b in Mydata">
+                                        <h4>{{'{{ b.title }}'}}</h6>
+                                        <h6>by {{'{{ b.username }}'}} le {{'{{ b.createdAt.date }}'}}</h4>
+                                        <p>
+                                            <small>{{'{{ b.summary }}'}}</small>
+                                        </p>
+                                        <p><img src="uploads/pictures/{{'{{ b.id }}'}} ~ '.' ~ {{'{{ b.extension }}'}}]|join"/></p>
+                                        <button class="btn btn-lg btn-primary">Read more</button>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <!-- End Main Text -->
+                                <!-- Side Column -->
+
+                                <div class="col-md-3">
+                                    <h3 class="title">Derniers articles</h3>
+                                    <div ng-repeat="b in Mydata">
+                                        <h4 style="margin: 0;">{{'{{ b.title }}'}}</h6>
+                                        <h6 style="margin: 0;">by {{'{{ b.username }}'}} le {{'{{ b.createdAt.date }}'}}</h4>
+                                        <p>
+                                            <small>{{'{{ b.summary }}'}}</small>
+                                        </p>
+                                        <button class="btn btn-lg btn-primary">Read more</button>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <!-- End Side Column -->
+                            </div>
+                        </div>
+                        <div class="container background-gray-lighter">
+                            <div class="row row-no-margin">
+                                <!-- Portfolio -->
+                                <ul class="portfolio-group">
+                                    <!-- Portfolio Item -->
+                                    <li class="portfolio-item col-sm-3 col-xs-6 no-padding">
+                                        <a href="#">
+                                            <h3>Placerat facer possim</h3>
+                                            <figure class="animate fadeInLeft animated">
+                                                <img alt="image1" src="{{ asset('static/assets/img/frontpage/image1.png') }}">
+                                                <figcaption>
+                                                    <span style="color:#212121; ">Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui et everti tamquam suavitate mea.</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <!-- //Portfolio Item// -->
+                                    <!-- Portfolio Item -->
+                                    <li class="portfolio-item col-sm-3 col-xs-6 no-padding">
+                                        <a href="#">
+                                            <h3>Placerat facer possim</h3>
+                                            <figure class="animate fadeInLeft animated">
+                                                <img alt="image2" src="{{ asset('static/assets/img/frontpage/image2.png') }}">
+                                                <figcaption>
+                                                    <span style="color:#212121; ">Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui et everti tamquam suavitate mea.</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <!-- //Portfolio Item// -->
+                                    <!-- Portfolio Item -->
+                                    <li class="portfolio-item col-sm-3 col-xs-6 no-padding">
+                                        <a href="#">
+                                            <h3>Placerat facer possim</h3>
+                                            <figure class="animate fadeInLeft animated">
+                                                <img alt="image3" src="{{ asset('static/assets/img/frontpage/image3.png') }}">
+                                                <figcaption>
+                                                    <span style="color:#212121; ">Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui et everti tamquam suavitate mea.</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <!-- //Portfolio Item// -->
+                                    <!-- Portfolio Item -->
+                                    <li class="portfolio-item col-sm-3 col-xs-6 no-padding">
+                                        <a href="#">
+                                            <h3>Placerat facer possim</h3>
+                                            <figure class="animate fadeInLeft animated">
+                                                <img alt="image4" src="{{ asset('static/assets/img/frontpage/image4.png') }}">
+                                                <figcaption>
+                                                    <span style="color:#212121; ">Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui et everti tamquam suavitate mea.</span>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </li>
+                                    <!-- //Portfolio Item// -->
+                                </ul>
+                                <!-- End Portfolio -->
+                            </div>
+                        </div>
+{% endblock %}
